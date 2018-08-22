@@ -1,2 +1,12 @@
 # editable-tree
-A dynamic decision tree of decisions and links
+Editable Tree
+
+## Testing
+
+npm install
+
+npm start
+
+## Building
+
+electron-packager . --arch=x64 --platform=win32 --icon=./img/icon.ico

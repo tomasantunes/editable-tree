@@ -1,0 +1,28 @@
+{
+  "name": "editable-tree",
+  "version": "1.0.0",
+  "description": "Editable Tree",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.8.7"
+  },
+  "dependencies": {
+    "bootstrap3": "^3.3.5",
+    "jquery": "^3.2.1",
+    "jquery-ui-dist": "^1.12.1",
+    "jsonfile": "^3.0.0",
+    "knockout": "^3.4.2",
+    "knockout-sortable": "^1.1.0",
+    "later": "^1.2.0",
+    "nedb": "^1.8.0"
+  }
+}
