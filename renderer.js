@@ -38,7 +38,8 @@ function getCurrentDate() {
  * }
 **/
 var DecisionTree = function(data) {
-  
+
+  var t = this;
   this.initial = data.initial;
   this.choices = data.choices;
   
@@ -52,11 +53,33 @@ var DecisionTree = function(data) {
   
   /* Get full choice data by specific id */
   this.getChoice = function(id) {
-
     if (!(id in this.choices)) return false;
     if (!('id' in this.choices[id])) this.choices[id].id = id;
     return this.choices[id];
     
+  };
+
+
+  this.searchAndRemove = function(id) {
+    $.each(t.choices, function(i, val) {
+      if (id == val.id) {
+        delete t.choices[i];
+        console.log(t.choices);
+        return;
+      }
+    });
+    $.each(t.choices, function(i, val) {
+      $.each(val.children, function(i2, val2) {
+        if (id == val2) {
+          val.children.splice(i2, 1);
+        }
+      });
+    });
+  }
+
+  /* Get full choice data by specific id */
+  this.removeChoice = function(id) {
+    this.searchAndRemove(id);
   };
   
   /* As above, but passing an array of choice IDs */
@@ -221,6 +244,7 @@ $(function() {
   };
 
   var reload = function() {
+      tree = new DecisionTree(data);
       var initData = tree.getInitial();
       current_id = null;
       renderList(initData);
@@ -239,18 +263,30 @@ $(function() {
 
   $(document).on('click', '.remove-btn', function(e) {
     var choiceId = $(this).data('choice');
-    var index = data['initial'].indexOf(data['choices'][choiceId]['name'])
-    data['initial'].splice(index, 1);
-    delete data['choices'][choiceId];
+    var parents = tree.getParents(choiceId);
+
+    if (parents.length < 1) {
+      var index = tree['initial'].indexOf(tree.getChoice(choiceId)['name']);
+      tree['initial'].splice(index, 1);
+    }
+    tree.removeChoice(choiceId);
+
+    save();
 
     if (current_id) {
-      var children = tree.getChildren(choiceId);
+      var children = tree.getChildren(current_id);
       renderList(children);
     }
     else {
       _doInitial();
     }
   });
+
+  function save() {
+    data.initial = tree.initial;
+    data.choices = tree.choices;
+    jsonfile.writeFileSync('data.json', data);
+  }
   
   $('#back').on('click', function(e) {
     e.preventDefault();
@@ -291,6 +327,7 @@ $(function() {
       }
       data['choices'][current_id]['children'].push(id);
       data['choices'][id] = {name: text, children: [], links: []};
+      tree = new DecisionTree(data);
       var children = tree.getChildren(current_id);
       renderList(children);
     }
