@@ -1,7 +1,7 @@
 # editable-tree
 Editable Tree
 
-An utility to write down nested text fields with an extra panel for URLs.
+An utility to fill out nested text fields with an extra panel for URLs.
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y2M1UI)
 
