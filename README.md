@@ -15,4 +15,4 @@ npm start
 
 electron-packager . --arch=x64 --platform=win32 --icon=./img/icon.ico
 
-[Editable-Tree Screenshot](https://i.imgur.com/9J4qTno.png)
+[![Editable-Tree Screenshot](https://i.imgur.com/9J4qTno.png)
