@@ -3,7 +3,7 @@ Editable Tree
 
 An utility to fill out nested text fields with an extra panel for URLs.
 
-![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y2M1UI)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y2M1UI)
 
 ## Testing
 
