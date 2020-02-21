@@ -4,6 +4,7 @@ Editable Tree
 An utility to fill out nested text fields with an extra panel for URLs.
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y2M1UI)
+[![paypal](https://i.imgur.com/jJn7OTO.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y4DJVGBKXB8MJ&source=url)
 
 ## Testing
 
